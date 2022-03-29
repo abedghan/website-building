@@ -1,0 +1,11 @@
+
+#logo-img{
+    visibility: hidden;
+}
+}
+#news-let{
+    padding: 0;
+}
+@media (min-width: 768px){
+   .news-input{width: 50%;} 
+}

@@ -1,11 +1,49 @@
 
-#logo-img{
-    visibility: hidden;
+body{
+    position: relative;
 }
+body::before{
+    display: block;
+    content: '';
+    height: 50px;
 }
+
+
+
 #news-let{
     padding: 0;
 }
 @media (min-width: 768px){
    .news-input{width: 50%;} 
 }
+.img-learn{
+    width: 80%;
+}
+#map {
+width: 80%;
+border-radius: 15px;
+}
+@media(min-width: 768px){
+    #map{margin-left: 100px;
+        
+    }
+}
+@media(max-width: 768px){
+    #map{display: none;
+       
+        
+    }
+     #my-carousel{
+         display: none;
+     }
+     #classroom-nav{
+         display: none;
+     }
+}
+
+.img-car{
+   
+    height: 500px;
+}
+
+

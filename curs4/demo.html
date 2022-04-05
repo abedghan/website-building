@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> 1 Bitcoin </h1>
+    <div id="data"></div>
+    <div id="bit"></div>
+    <div id="bit1"></div>
+    <button id="getDataBtn">get</button>
+    <button id="btn">get again</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+     $(document).ready(function(){
+        $('#btn').click(function(){
+            let url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+            $.getJSON(
+                url,
+                function(result){
+                    $('div#data').append(result.time.updated);
+                    $('div#bit').append(result.bpi.EUR.rate)
+                    $('div#bit1').append(result.bpi.GBP.rate)
+                    console.log(result)
+                }
+            );
+        });
+     });
+    $(document).ready(function(){
+    $('#getDataBtn').click(function () {
+
+$.ajax("https://api.coindesk.com/v1/bpi/currentprice.json",
+    {
+    type: "GET",
+    
+    dataType: 'json',
+    
+   
+    success: function (result,status,xhr) {
+        $('div#data').append(result.time.updated);
+                    $('div#bit').append(result.bpi.EUR.rate)
+                    
+            },
+   
+});
+
+}); });
+
+        // xmlhttp.open("GET", url, true);
+        // xmlhttp.send();
+
+        // function myFunction(data) {
+        //     var out = "";
+        //     var i;
+        //     console.log(data.bpi);
+        //     document.getElementById("data").innerHTML = data.time.updated;
+        //         out += `
+        //         <ul>
+        //         <li>EUR: ${data.bpi.EUR.rate}</li>
+        //         <li>GBP: ${data.bpi.GBP.rate}</li>
+        //         <li>USD: ${data.bpi.USD.rate}</li>
+        //         </ul>
+        //         `
+
+        //     document.getElementById("bit").innerHTML = out;
+        // }
+    </script>
+
+</body>
+
+</html>
